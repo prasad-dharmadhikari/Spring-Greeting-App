@@ -21,8 +21,8 @@ public class GreetingController {
         return greetingService.getMessage(name);
     }
 
-    @PutMapping("/greetingParam/{name}")
-    public Greeting getGreetingByParameter(@PathVariable String name) {
-        return greetingService.getGreetingByParameter(name);
+    @PutMapping("/greetingParam")
+    public Greeting getGreetingByParameter(@RequestParam(value = "firstName") String firstName, @RequestParam(value = "lastName") String lastName) {
+        return greetingService.getGreetingByParameter(firstName, lastName);
     }
 }

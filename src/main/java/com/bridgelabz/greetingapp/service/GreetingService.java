@@ -10,8 +10,8 @@ public class GreetingService {
         return new Greeting(name);
     }
 
-    public Greeting getGreetingByParameter(String name) {
-        return new Greeting(name);
+    public Greeting getGreetingByParameter(String firstName, String lastName) {
+        return new Greeting(firstName + " " + lastName);
     }
 
     public String sayHello() {
