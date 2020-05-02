@@ -8,6 +8,8 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class GreetingService {
     @Autowired
@@ -41,5 +43,9 @@ public class GreetingService {
             throw new GreetingAppException(GreetingAppException.ExceptionType.DATA_NOT_FOUND,"DATA NOT FOUND");
         GreetingDTO greetingDTO = modelMapper.map(greeting, GreetingDTO.class);
         return greetingDTO;
+    }
+
+    public List getAllGreetings() {
+        return greetingRepository.findAll();
     }
 }
