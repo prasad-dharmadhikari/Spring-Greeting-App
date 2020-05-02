@@ -48,4 +48,8 @@ public class GreetingController {
     public GreetingDTO updateGreetingInfo(@RequestBody GreetingDTO greetingDTO) {
         return greetingService.updateGreetingInfo(greetingDTO);
     }
+    @DeleteMapping("/deleteGreeting/{id}")
+    public String deleteGreeting(@PathVariable Long id) {
+        return greetingService.deleteGreeting(id);
+    }
 }
