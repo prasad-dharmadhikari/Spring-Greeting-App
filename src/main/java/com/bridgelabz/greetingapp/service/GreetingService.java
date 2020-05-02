@@ -48,4 +48,11 @@ public class GreetingService {
     public List getAllGreetings() {
         return greetingRepository.findAll();
     }
+
+    public GreetingDTO updateGreetingInfo(GreetingDTO greetingDTO) {
+        greetingDTO.setGreetingMessage("Hello " + greetingDTO.getFirstName() + " " + greetingDTO.getLastName());
+        Greeting greeting = modelMapper.map(greetingDTO, Greeting.class);
+        greetingRepository.save(greeting);
+        return greetingDTO;
+    }
 }
