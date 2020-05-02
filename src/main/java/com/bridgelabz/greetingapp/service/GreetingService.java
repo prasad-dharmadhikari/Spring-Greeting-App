@@ -40,7 +40,7 @@ public class GreetingService {
     public GreetingDTO getGreetingByID(Long id) throws GreetingAppException {
         Greeting greeting = greetingRepository.getOne(id);
         if (greeting == null)
-            throw new GreetingAppException(GreetingAppException.ExceptionType.DATA_NOT_FOUND,"DATA NOT FOUND");
+            throw new GreetingAppException(GreetingAppException.ExceptionType.DATA_NOT_FOUND, "DATA NOT FOUND");
         GreetingDTO greetingDTO = modelMapper.map(greeting, GreetingDTO.class);
         return greetingDTO;
     }
@@ -54,5 +54,10 @@ public class GreetingService {
         Greeting greeting = modelMapper.map(greetingDTO, Greeting.class);
         greetingRepository.save(greeting);
         return greetingDTO;
+    }
+
+    public String deleteGreeting(Long id) {
+        greetingRepository.deleteById(id);
+        return "Greeting with id ---> " + id + " is deleted successfully!!!";
     }
 }
