@@ -44,4 +44,8 @@ public class GreetingController {
         return greetingService.getAllGreetings();
     }
 
+    @PutMapping("/updateGreeting")
+    public GreetingDTO updateGreetingInfo(@RequestBody GreetingDTO greetingDTO) {
+        return greetingService.updateGreetingInfo(greetingDTO);
+    }
 }
